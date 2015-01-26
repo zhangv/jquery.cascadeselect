@@ -1,5 +1,7 @@
 # jquery.cascadeselect
 
+## Usage:
+
 ```html
 <script type='text/javascript'>
 		$(function() {

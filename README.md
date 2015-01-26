@@ -1,6 +1,6 @@
 # jquery.cascadeselect
 
-
+```html
 <script type='text/javascript'>
 		$(function() {
 			$('#province,#city,#district').cascadeselector({
@@ -18,3 +18,4 @@
 <select id="province"></select>
 <select id="city"></select>
 <select id="district"></select>
+```

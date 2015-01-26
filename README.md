@@ -13,7 +13,6 @@
 				labelkey : 'name',
 				tip: '请选择'
 			});
-
 		});
 </script>
 

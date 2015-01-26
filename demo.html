@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset='utf8'>
+		<script src='js/jquery-1.7.2.min.js'></script>
+		<script type='text/javascript' src='area.js'></script>
+		<script type='text/javascript' src='jquery.cascadeselect.js'></script>
+		<script type='text/javascript'>
+		$(function() {
+			$('#province,#city,#district').cascadeselector({
+				selected: '',
+				data: provinceAndCityData,
+				keys: 'province,city,area',
+				valuekey : 'code',
+				labelkey : 'name',
+				tip: '请选择'
+			});
+
+		});
+		</script>
+	</head>
+	<body>
+		<select id="province"></select>
+		<select id="city"></select>
+		<select id="district"></select>
+	</body>
+</html>

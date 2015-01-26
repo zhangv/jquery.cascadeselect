@@ -67,9 +67,10 @@ $.fn.cascadeselector = function(options){
 		}
 	}
 	function l2Changed() {
+		var selectedl1 = $l1select.find('option:selected').val();
 		var selectedl2 = $l2select.find('option:selected').val();
 		$l3select.html("<option value=''>"+tip+"</option>");
-		var l3options = getL3Options(selectedl2)
+		var l3options = getL3Options(selectedl1,selectedl2)
 		$.each( l3options, function(i, n){
 			$("<option value='" + n.value + "'>" + n.label + "</option>").appendTo($l3select);
 		});
@@ -112,9 +113,10 @@ $.fn.cascadeselector = function(options){
 		return [];
 	}
 
-	function getL3Options(l2value) {
+	function getL3Options(l1value,l2value) {
 		for (var i = 0; i < data[l1key].length; i++) {
 			var l1 = data[l1key][i];
+			if(l1[valuekey] != l1value) continue;
 			for (var j = 0; j < l1[l2key].length; j++) {
 				var l2 = l1[l2key][j];
 				if (l2[valuekey] == l2value) {

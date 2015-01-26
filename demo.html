@@ -2,25 +2,63 @@
 	<head>
 		<meta charset='utf8'>
 		<script src='js/jquery-1.7.2.min.js'></script>
-		<script type='text/javascript' src='area.js'></script>
+		<script type='text/javascript' src='chinacities.js'></script>
+		<script type='text/javascript' src='chinacities2.js'></script>
+		<script type='text/javascript' src='chinacities3.js'></script>
+		<script type='text/javascript' src='worldcities.js'></script>
 		<script type='text/javascript' src='jquery.cascadeselect.js'></script>
 		<script type='text/javascript'>
 		$(function() {
 			$('#province,#city,#district').cascadeselector({
-				selected: '',
-				data: provinceAndCityData,
+				data: chinacities,
 				keys: 'province,city,area',
 				valuekey : 'code',
 				labelkey : 'name',
 				tip: '请选择'
 			});
-
+			$('#province2,#city2,#district2').cascadeselector({
+				data: chinacities2,
+				keys: 'province,city,district',
+				valuekey : 'code',
+				labelkey : 'name',
+				tip: '请选择'
+			});
+			$('#province3,#city3').cascadeselector({
+				data: chinacities3,
+				keys: 'province,citys',
+				valuekey : 'id',
+				labelkey : 'name',
+				tip: '请选择'
+			});
+			$('#wcountry,#wstate,#wcity').cascadeselector({
+				data: worldData,
+				keys: 'country,state,city',
+				valuekey : 'code',
+				labelkey : 'name',
+				tip: '请选择'
+			});
 		});
 		</script>
 	</head>
 	<body>
-		<select id="province"></select>
-		<select id="city"></select>
-		<select id="district"></select>
+		<div>
+			<select id="province"></select>
+			<select id="city"></select>
+			<select id="district"></select>
+		</div>
+		<div>
+			<select id="province2"></select>
+			<select id="city2"></select>
+			<select id="district2"></select>
+		</div>
+		<div>
+			<select id="province3"></select>
+			<select id="city3"></select>
+		</div>
+		<div>
+			<select id="wcountry"></select>
+			<select id="wstate"></select>
+			<select id="wcity"></select>
+		</div>
 	</body>
 </html>

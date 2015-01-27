@@ -5,6 +5,8 @@
 		<script type='text/javascript' src='chinacities.js'></script>
 		<script type='text/javascript' src='chinacities2.js'></script>
 		<script type='text/javascript' src='chinacities3.js'></script>
+		<script type='text/javascript' src='chinacities4.js'></script>
+		<script type='text/javascript' src='uscities.js'></script>
 		<script type='text/javascript' src='worldcities.js'></script>
 		<script type='text/javascript' src='jquery.cascadeselect.js'></script>
 		<script type='text/javascript'>
@@ -30,6 +32,17 @@
 				labelkey : 'name',
 				tip: '请选择'
 			});
+			$('#province4,#city4,#district4').cascadeselector({
+				data: chinacities4,
+				keys: 'province,l,l',
+				valuekey : 's',
+				labelkey : 'n',
+				tip: '请选择'
+			});
+			$('#usstate,#uscity').cascadeselector({ //using flat format
+				data: uscities,
+				tip: 'Please choose'
+			});
 			$('#wcountry,#wstate,#wcity').cascadeselector({
 				data: worldData,
 				keys: 'country,state,city',
@@ -54,6 +67,15 @@
 		<div>
 			<select id="province3"></select>
 			<select id="city3"></select>
+		</div>
+		<div>
+			<select id="province4"></select>
+			<select id="city4"></select>
+			<select id="district4"></select>
+		</div>
+		<div>
+			<select id="usstate"></select>
+			<select id="uscity"></select>
 		</div>
 		<div>
 			<select id="wcountry"></select>

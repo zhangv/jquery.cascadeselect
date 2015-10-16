@@ -43,10 +43,20 @@ $.fn.cascadeselector = function(options){
 	}
 
 	function addl1Options() {
-		$l1select.html("<option value=''>"+tip+"</option>");
-		$l2select.html("<option value=''>"+tip+"</option>");
-		if($l3select)
-			$l3select.html("<option value=''>"+tip+"</option>");
+		var $l1tip = $l1select.attr('tip');
+		console.log($l1tip);
+		if($l1tip) $l1select.html("<option value=''>"+$l1tip+"</option>");
+		else $l1select.html("<option value=''>"+tip+"</option>");
+
+		var $l2tip = $l2select.attr('tip');
+		if($l2tip) $l2select.html("<option value=''>"+$l2tip+"</option>");
+		else $l2select.html("<option value=''>"+tip+"</option>");
+
+		if($l3select){
+			var $l3tip = $l3select.attr('tip');
+			if($l3tip) $l3select.html("<option value=''>"+$l3tip+"</option>");
+			else $l3select.html("<option value=''>"+tip+"</option>");
+		}
 		var l1options = getL1Options();
 		$.each( l1options, function(i, n){
 			$("<option value='" + n.value + "'>" + n.label + "</option>").appendTo($l1select);
@@ -61,9 +71,13 @@ $.fn.cascadeselector = function(options){
 
 	function l1Changed() {
 		var selectedl1 = $l1select.find('option:selected').val();
-		$l2select.html("<option value=''>"+tip+"</option>");
-		if($l3select)
-			$l3select.html("<option value=''>"+tip+"</option>");
+		var $l2tip = $l2select.attr('tip');
+		$l2select.html("<option value=''>"+$l2tip+"</option>");
+		if($l3select){
+			var $l3tip = $l3select.attr('tip');
+			$l3select.html("<option value=''>"+$l3tip+"</option>");
+		}
+
 		var l2options = getL2Options(selectedl1)
 		$.each( l2options, function(i, n){
 			$("<option value='" + n.value + "'>" + n.label + "</option>").appendTo($l2select);
@@ -78,7 +92,14 @@ $.fn.cascadeselector = function(options){
 		var selectedl1 = $l1select.find('option:selected').val();
 		var selectedl2 = $l2select.find('option:selected').val();
 		if(!$l3select) return;
-		$l3select.html("<option value=''>"+tip+"</option>");
+			var $l3tip = $l3select.attr('tip');
+		if($l3tip){
+			$l3select.html("<option value=''>"+$l3tip+"</option>");
+		}else{
+			$l3select.html("<option value=''>"+tip+"</option>");
+		}
+
+
 		var l3options = getL3Options(selectedl1,selectedl2)
 		$.each( l3options, function(i, n){
 			$("<option value='" + n.value + "'>" + n.label + "</option>").appendTo($l3select);
